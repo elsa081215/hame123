@@ -871,120 +871,60 @@ with st.sidebar:
 
                 st.write(f"結局進度：{unlocked}/{len(endings)}")
 
-                if unlocked < len(endings)-6:
+                if unlocked < 1:
                     st.info("請先解鎖結局才能使用回放。")
-                    st.stop()
-
-                st.success("🎉 回放系統已解鎖！")
+                else:
+                    st.success("🎉 回放系統已解鎖！")
                 if st.button(" 關閉圖鑑"):
                     st.session_state.show_gallery = False
                     st.rerun()
 
-                act = st.radio(
-                    "選擇要觀看的結局",
-                    can_watch
-                )
+                    act = st.radio(
+                        "選擇要觀看的結局",
+                        can_watch
+                    )
 
-                st.divider()         
-                container = st.empty()
+                    st.divider()         
+                    container = st.empty()
 
-                if act== "等待的人" :  
-                                    with container.container():
+                    if act== "等待的人" :  
+                                        with container.container():
 
-                                            story_box = st.empty()
-                                            text = ""
+                                                story_box = st.empty()
+                                                text = ""
 
-                                            for line in story2:
-                                                text += line + "\n\n"
-                                                story_box.markdown(text)
-                                                time.sleep(1)
+                                                for line in story2:
+                                                    text += line + "\n\n"
+                                                    story_box.markdown(text)
+                                                    time.sleep(1)
 
-                                    st.session_state.story2_done = True
+                                        st.session_state.story2_done = True
 
-                                    st.info(
-                                            "《家》不是一個關於復仇的故事，而是一家人明明知道死去的人不會回來，卻依然不願放手的故事。"
-                                        )   
-                if act== "夢想" : 
-                                st.success("已解鎖隱藏結局2:愛人")
-                                st.write(f"阿嘉：{st.session_state.player_name}，謝謝你")
-                                st.write(f"阿嘉：{st.session_state.player_name}，")
-                                st.write("阿嘉：......")
-                                st.write("阿嘉：你知道嗎？")
-                                st.write("阿嘉：我以前其實想當舞蹈生。")
+                                        st.info(
+                                                "《家》不是一個關於復仇的故事，而是一家人明明知道死去的人不會回來，卻依然不願放手的故事。"
+                                            )   
+                    if act== "夢想" : 
+                                    st.success("已解鎖隱藏結局2:愛人")
+                                    st.write(f"阿嘉：{st.session_state.player_name}，謝謝你")
+                                    st.write(f"阿嘉：{st.session_state.player_name}，")
+                                    st.write("阿嘉：......")
+                                    st.write("阿嘉：你知道嗎？")
+                                    st.write("阿嘉：我以前其實想當舞蹈生。")
 
-                                st.write("阿嘉：哥哥大我三歲。")
-                                st.write("阿嘉：小時候他總說我跳舞像鴨子。")
+                                    st.write("阿嘉：哥哥大我三歲。")
+                                    st.write("阿嘉：小時候他總說我跳舞像鴨子。")
 
-                                st.write("阿嘉：明明說很難看。")
-                                st.write("阿嘉：卻每次都坐在第一排看。")
-                                st.write("阿嘉：後來發生很多事。")
-                                st.write("阿嘉：夢想也不見了。")
-                                st.write("阿嘉：......")
-                                st.write(f"阿嘉：{st.session_state.player_name}。")
-                                st.write("阿嘉：如果有一天我重新站上舞台。")
-                                st.write("阿嘉：你會來看嗎？")   
-                if act =="箱子裡的約定":
-                                st.balloons()
-                                st.success("已解鎖隱藏結局3:箱子裡的約定") 
-                                container = st.empty()
-
-                                with container.container():
-
-                                        story_box = st.empty()
-                                        text = ""
-
-                                        for line in story3:
-                                            text += line + "\n\n"
-                                            story_box.markdown(text)
-                                            time.sleep(1)
-                                st.info(
-                                        "其實家從來不是地方,是有人願意一起回去。"
-                                    ) 
-                if act=="留在照片裡的人":
-                                st.success(" 隱藏結局4:留在照片裡的人")
-                                st.write("阿嘉：......")
-                                time.sleep(1)
-
-                                st.write("阿嘉：其實我知道。")
-
-                                time.sleep(2)
-
-                                st.write("阿嘉：哥哥不會回來了。")
-
-                                time.sleep(1)
-
-                                st.write("阿嘉：只是我一直不敢把這些東西收起來。")
-
-                                time.sleep(1)
-
-                                st.write("阿嘉：因為我怕有一天。")
-
-                                time.sleep(1)
-
-                                st.write("阿嘉：連他的樣子都忘記。")
-
-                                time.sleep(1)
-
-                                st.write("阿嘉：......")
-
-                                st.write("阿嘉：謝謝你陪我整理完。")
-                if act=="作弊仔":
-                                    story_cheat = [
-                                    "……",
-                                    "阿嘉：等等。",
-                                    "阿嘉：你第一次就猜中了？",
-                                    "阿嘉：不可能。",
-                                    "阿嘉：……",
-                                    "阿嘉：作者。",
-                                    "阿嘉：是不是有人偷看程式？",
-                                    "（系統正在檢查玩家……）",
-                                    "沒有發現異常。",
-                                    "阿嘉：蛤？",
-                                    "阿嘉：真的假的。",
-                                    "阿嘉：那你今天運氣也太好了吧。",
-                                    "阿嘉：害我以為有人開外掛。",
-                                    "🏆 隱藏結局：作弊仔"
-                                ]
+                                    st.write("阿嘉：明明說很難看。")
+                                    st.write("阿嘉：卻每次都坐在第一排看。")
+                                    st.write("阿嘉：後來發生很多事。")
+                                    st.write("阿嘉：夢想也不見了。")
+                                    st.write("阿嘉：......")
+                                    st.write(f"阿嘉：{st.session_state.player_name}。")
+                                    st.write("阿嘉：如果有一天我重新站上舞台。")
+                                    st.write("阿嘉：你會來看嗎？")   
+                    if act =="箱子裡的約定":
+                                    st.balloons()
+                                    st.success("已解鎖隱藏結局3:箱子裡的約定") 
                                     container = st.empty()
 
                                     with container.container():
@@ -992,36 +932,95 @@ with st.sidebar:
                                             story_box = st.empty()
                                             text = ""
 
-                                            for line in story_cheat:
+                                            for line in story3:
                                                 text += line + "\n\n"
                                                 story_box.markdown(text)
                                                 time.sleep(1)
-                                            st.error(" 偵測到可疑玩家。")
-                                            time.sleep(2)
-                                            st.success("檢查完成。")
-                                            st.write("……")
-                                            st.write("系統：只是運氣很好。")
-                if act=="貪婪":
-                                box = st.empty()
-                                text = ""
-                                for line in story4:
+                                    st.info(
+                                            "其實家從來不是地方,是有人願意一起回去。"
+                                        ) 
+                    if act=="留在照片裡的人":
+                                    st.success(" 隱藏結局4:留在照片裡的人")
+                                    st.write("阿嘉：......")
+                                    time.sleep(1)
 
-                                    text += line + "\n\n"
+                                    st.write("阿嘉：其實我知道。")
 
-                                    box.markdown(text)
+                                    time.sleep(2)
+
+                                    st.write("阿嘉：哥哥不會回來了。")
 
                                     time.sleep(1)
 
-                                st.balloons()
-                if act== "家" : 
-                                st.success("已解鎖主結局:家")
-                                st.write(f"阿嘉：{st.session_state.player_name}")
-                                st.write("阿嘉：牛逼,尼著麼知道是打812")
-                               
+                                    st.write("阿嘉：只是我一直不敢把這些東西收起來。")
+
+                                    time.sleep(1)
+
+                                    st.write("阿嘉：因為我怕有一天。")
+
+                                    time.sleep(1)
+
+                                    st.write("阿嘉：連他的樣子都忘記。")
+
+                                    time.sleep(1)
+
+                                    st.write("阿嘉：......")
+
+                                    st.write("阿嘉：謝謝你陪我整理完。")
+                    if act=="作弊仔":
+                                        story_cheat = [
+                                        "……",
+                                        "阿嘉：等等。",
+                                        "阿嘉：你第一次就猜中了？",
+                                        "阿嘉：不可能。",
+                                        "阿嘉：……",
+                                        "阿嘉：作者。",
+                                        "阿嘉：是不是有人偷看程式？",
+                                        "（系統正在檢查玩家……）",
+                                        "沒有發現異常。",
+                                        "阿嘉：蛤？",
+                                        "阿嘉：真的假的。",
+                                        "阿嘉：那你今天運氣也太好了吧。",
+                                        "阿嘉：害我以為有人開外掛。",
+                                        "🏆 隱藏結局：作弊仔"
+                                    ]
+                                        container = st.empty()
+
+                                        with container.container():
+
+                                                story_box = st.empty()
+                                                text = ""
+
+                                                for line in story_cheat:
+                                                    text += line + "\n\n"
+                                                    story_box.markdown(text)
+                                                    time.sleep(1)
+                                                st.error(" 偵測到可疑玩家。")
+                                                time.sleep(2)
+                                                st.success("檢查完成。")
+                                                st.write("……")
+                                                st.write("系統：只是運氣很好。")
+                    if act=="貪婪":
+                                    box = st.empty()
+                                    text = ""
+                                    for line in story4:
+
+                                        text += line + "\n\n"
+
+                                        box.markdown(text)
+
+                                        time.sleep(1)
+
+                                    st.balloons()
+                    if act== "家" : 
+                                    st.success("已解鎖主結局:家")
+                                    st.write(f"阿嘉：{st.session_state.player_name}")
+                                    st.write("阿嘉：牛逼,尼著麼知道是打812")
+                                
     if st.button("黑市") :
-       st.session_state.page = "shop"
+        st.session_state.page = "shop"
     if st.button("阿嘉聊天室"):
-        st.session_state.page = "chat"
+            st.session_state.page = "chat"
     if title in ["家人", "愛人"]:
         if st.button("作者房間"):
             st.session_state.page = "r00m" 
