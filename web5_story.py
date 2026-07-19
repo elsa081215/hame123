@@ -7,7 +7,7 @@ from datetime import datetime
 
 now = datetime.now()
 hour = now.hour
-
+st.video = "https://youtu.be/BHfL4ns7-CM"
 if 0 <= hour < 3:
 
     st.info("🌙 深夜登入")
@@ -2336,8 +2336,7 @@ if st.session_state.page == "shop":
 
     st.write(f"目前怪物強化：{st.session_state.shop_cost}")
     if st.button("觀看廣告"):
-        music_url = "https://youtu.be/BHfL4ns7-CM"
-        st.audio(music_url, format='audio/mp3')
+
         time.sleep(3)
         st.write("yt冰情悅不用進步")
         time.sleep(0.5)
