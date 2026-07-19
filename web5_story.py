@@ -7,6 +7,7 @@ from datetime import datetime
 
 now = datetime.now()
 hour = now.hour
+
 if 0 <= hour < 3:
 
     st.info("🌙 深夜登入")
@@ -669,7 +670,7 @@ class bag:
             st.write("沒有藥水了！")   
 if "player" not in st.session_state:
     my_bag = bag(elixir=5)
-    st.session_state.player = Player(my_bag)
+    st.session_state.player = Player(my_bag, st.session_state.prison,st.session_state.HP)
 
 alen = st.session_state.player
 #  Bag 功能
@@ -2335,7 +2336,8 @@ if st.session_state.page == "shop":
 
     st.write(f"目前怪物強化：{st.session_state.shop_cost}")
     if st.button("觀看廣告"):
-
+        music_url = "https://youtu.be/BHfL4ns7-CM"
+        st.audio(music_url, format='audio/mp3')
         time.sleep(3)
         st.write("yt冰情悅不用進步")
         time.sleep(0.5)
@@ -4057,10 +4059,10 @@ elif memo.strip() == "狗狗":
     st.write("汪！")
 elif memo.strip() == "作者":
     st.write("??/")
-    st.write("阿嘉：不要把第四面牆拆掉。") 
+    st.write("阿嘉：不要把第四面牆拆掉。")
 elif memo.strip() == "ChatGPT":
     st.write("??/")
-    st.write("別找他了，他不會幫你破關")       
+    st.write("阿嘉：不要把第四面牆拆掉。")        
 # 儲存
 if st.button("儲存備忘錄"):
     st.session_state.memo = memo
