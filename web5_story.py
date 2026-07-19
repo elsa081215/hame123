@@ -654,7 +654,7 @@ class Player:
         st.write(f"你受到 {damage} 傷害")    
 class bag: 
     def __init__(self, elixir, date=0, HP=100): #初始生命值和date
-        self.HP = HP
+        st.session_state.HP = HP
         self.elixir = elixir
         self.date = date
     def oneday(self):
@@ -744,7 +744,7 @@ with st.sidebar:
     if temp >= 45:
         st.write("阿嘉：你的手機快熟了。")
     st.write("手機電量101%")
-    st.write(f"你的hp,  {alen.bag.HP}")
+    st.write(f"你的hp,  {st.session_state.HP}")
     st.write(f"阿嘉好感度{st.session_state.favor}")
     st.write(f"貓好感度{st.session_state.cat_favor}")
     st.write(f"狗好感度 {st.session_state.dog_favor}")
@@ -2335,7 +2335,7 @@ if st.session_state.page == "shop":
 
     st.write(f"目前怪物強化：{st.session_state.shop_cost}")
     if st.button("觀看廣告"):
-        music_url = "https://www.youtube.com/watch?v=BHfL4ns7-CM"
+        music_url = "https://youtu.be/BHfL4ns7-CM"
         st.audio(music_url, format='audio/mp3')
         time.sleep(3)
         st.write("yt冰情悅不用進步")
