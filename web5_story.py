@@ -719,7 +719,7 @@ m = st.session_state.monster
 
   # 玩家結束
 def check_player_dead():
-    if alen.bag.HP <= 0:
+    if st.session_state.HP <= 0:
         st.write("你被擊敗，被關進監獄")
 
         alen.bag.HP += 57
