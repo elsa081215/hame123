@@ -7,8 +7,6 @@ from datetime import datetime
 
 now = datetime.now()
 hour = now.hour
-if st.button("音樂"):
-    st.video = "https://youtu.be/BHfL4ns7-CM"
 if 0 <= hour < 3:
 
     st.info("🌙 深夜登入")
@@ -4059,7 +4057,10 @@ elif memo.strip() == "狗狗":
     st.write("汪！")
 elif memo.strip() == "作者":
     st.write("??/")
-    st.write("阿嘉：不要把第四面牆拆掉。")    
+    st.write("阿嘉：不要把第四面牆拆掉。") 
+elif memo.strip() == "ChatGPT":
+    st.write("??/")
+    st.write("別找他了，他不會幫你破關")       
 # 儲存
 if st.button("儲存備忘錄"):
     st.session_state.memo = memo
