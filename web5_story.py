@@ -4178,8 +4178,8 @@ if st.session_state.get("math_battle", False):
 
         else:
 
-            m.hp += 80
-            st.error("答錯！怪物回復 +80 HP")
+            m.hp += 280
+            st.error("答錯！怪物回復 +280 HP")
             st.write("阿嘉：連這都錯。")
 
         st.session_state.math_battle = False
@@ -4194,7 +4194,7 @@ if m.is_alive():
         st.write("阿嘉:哇靠")
     else:
         damage = m.attack()
-        alen.bag.HP -= damage
+        st.session_state.HP -= damage
         check_player_dead()
 
 action = st.radio(
