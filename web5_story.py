@@ -722,7 +722,7 @@ def check_player_dead():
     if st.session_state.HP <= 0:
         st.write("你被擊敗，被關進監獄")
 
-        alen.bag.HP += 57
+        st.session_state.HP += 57
         st.write("你重新站起來 HP回復到57")
 
         # 黑化
