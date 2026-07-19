@@ -7,7 +7,8 @@ from datetime import datetime
 
 now = datetime.now()
 hour = now.hour
-st.video = "https://youtu.be/BHfL4ns7-CM"
+if st.button("音樂"):
+    st.video = "https://youtu.be/BHfL4ns7-CM"
 if 0 <= hour < 3:
 
     st.info("🌙 深夜登入")
