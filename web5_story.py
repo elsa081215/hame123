@@ -650,7 +650,7 @@ class Player:
         monster.hp -= damage
         st.write(f"你攻擊造成 {damage} 傷害")
     def take_damage(self, damage):
-        self.bag.HP -= damage
+        st.session_state.HP -= damage
         st.write(f"你受到 {damage} 傷害")    
 class bag: 
     def __init__(self, elixir, date=0, HP=100): #初始生命值和date
@@ -659,7 +659,7 @@ class bag:
         self.date = date
     def oneday(self):
         self.date += 1
-        self.HP -= 1
+        st.session_state.HP -= 1
     def use_elixir(self):
         if self.elixir > 0:
             self.elixir -= 1
@@ -680,12 +680,12 @@ st.write("藥水數量:", alen.bag.elixir)
 st.write("過一天 ")
 alen.bag.oneday()
 
-st.write("HP:", alen.bag.HP)
+st.write("HP:", st.session_state.HP)
 st.write("date:", alen.bag.date)
 
 if st.button("背包喝藥水"):
     alen.bag.use_elixir()
-st.write("HP:", alen.bag.HP)
+st.write("HP:", st.session_state.HP)
 st.write("藥水剩餘:", alen.bag.elixir)
 #  Monster怪物 
 class monster:
@@ -721,7 +721,7 @@ def check_player_dead():
     if alen.bag.HP <= 0:
         st.write("你被擊敗，被關進監獄")
 
-        alen.bag.HP = 57
+        alen.bag.HP += 57
         st.write("你重新站起來 HP回復到57")
 
         # 黑化
@@ -1180,7 +1180,7 @@ if st.session_state.page == "chat":
         if st.session_state.favor >= 50:
             st.image("https://waapple.org/wp-content/uploads/2021/06/Variety_Cosmic-Crisp-transparent-658x677.png", caption="蘋果 ")  
             st.write("阿嘉:諾")
-            alen.bag.HP += 20
+            st.session_state.HP += 20
             st.session_state.favor += 3
         elif 0<= st.session_state.favor < 50:   
             st.image("https://askthescientists.com/wp-content/uploads/2021/04/AdobeStock_240042551-400x400.jpeg")
@@ -1748,7 +1748,7 @@ if st.session_state.page == "cat":
     and not st.session_state.cat_reward_lv2
     ):
         st.session_state.cat_grade = 2
-        alen.bag.HP += 20
+        st.session_state.HP += 20
         st.session_state.cat_reward_lv2 = True
         st.success(f"{st.session_state.cat_name}升到 Lv.2!")
 
@@ -1757,7 +1757,7 @@ if st.session_state.page == "cat":
         and not st.session_state.cat_reward_lv3
     ):
         st.session_state.cat_grade = 3
-        alen.bag.HP += 50
+        st.session_state.HP += 50
         st.session_state.cat_reward_lv3 = True
         st.success(f"{st.session_state.cat_name}升到 Lv.3!")
 
@@ -1766,7 +1766,7 @@ if st.session_state.page == "cat":
         and not st.session_state.cat_reward_lv4
     ):
         st.session_state.cat_grade = 4
-        alen.bag.HP += 400
+        st.session_state.HP += 400
         st.session_state.cat_reward_lv4 = True
         st.success(f"{st.session_state.cat_name}升到 Lv.4!")     
         st.write(f"{st.session_state.cat_name}已經把你當家人了。")
@@ -1869,7 +1869,7 @@ if st.session_state.page == "cat":
     and not st.session_state.cat_reward_lv2
     ):
         st.session_state.cat_grade = 2
-        alen.bag.HP += 20
+        st.session_state.HP += 20
         st.session_state.cat_reward_lv2 = True
         st.success(f"{st.session_state.cat_name}升到 Lv.2!")
 
@@ -1878,7 +1878,7 @@ if st.session_state.page == "cat":
         and not st.session_state.cat_reward_lv3
     ):
         st.session_state.cat_grade = 3
-        alen.bag.HP += 50
+        st.session_state.HP += 50
         st.session_state.cat_reward_lv3 = True
         st.success(f"{st.session_state.cat_name}升到 Lv.3!")
 
@@ -1887,7 +1887,7 @@ if st.session_state.page == "cat":
         and not st.session_state.cat_reward_lv4
     ):
         st.session_state.cat_grade = 4
-        alen.bag.HP += 400
+        st.session_state.HP += 400
         st.session_state.cat_reward_lv4 = True
         st.success(f"{st.session_state.cat_name}升到 Lv.4!")     
         st.write(f"{st.session_state.cat_name}已經把你當家人了。")
@@ -1957,7 +1957,7 @@ if st.session_state.page == "dog":
     and not st.session_state.dog_reward_lv2
 ):
         st.session_state.dog_grade = 2
-        alen.bag.HP += 20
+        st.session_state.HP += 20
         st.session_state.dog_reward_lv2 = True
         st.success(f"{st.session_state.dog_name}升到 Lv.2!")
         st.write("（沒有聲音，但你好像聽見有人說：不愧是狗狗）")
@@ -1966,7 +1966,7 @@ if st.session_state.page == "dog":
         and not st.session_state.dog_reward_lv3
     ):
         st.session_state.dog_grade = 3
-        alen.bag.HP += 50
+        st.session_state.HP += 50
         st.session_state.dog_reward_lv3 = True
         st.success(f"{st.session_state.dog_name}升到 Lv.3!")
 
@@ -1975,7 +1975,7 @@ if st.session_state.page == "dog":
         and not st.session_state.dog_reward_lv4
     ):
         st.session_state.dog_grade = 4
-        alen.bag.HP += 400
+        st.session_state.HP += 400
         st.session_state.dog_reward_lv4 = True
         st.success(f"{st.session_state.dog_name}升到 Lv.4!")     
         st.write(f"{st.session_state.dog_name}已經把你當家人了。")
@@ -2228,7 +2228,7 @@ if st.session_state.page == "snails":
         st.write("蝸牛總共前進了 0.01 公分。")
         st.write("阿嘉：這東西是不是根本沒在動？")
     elif step == 200:
-        st.write("812")
+        st.write("打812")
         st.write("812")
 if st.session_state.page == "guess":
     st.title("猜數字")
@@ -2294,7 +2294,7 @@ if st.session_state.page == "guess":
 
             hp = random.randint(30, 80)
 
-            alen.bag.HP += hp
+            st.session_state.HP += hp
 
             st.success(f"HP +{hp}")
 
@@ -2335,6 +2335,8 @@ if st.session_state.page == "shop":
 
     st.write(f"目前怪物強化：{st.session_state.shop_cost}")
     if st.button("觀看廣告"):
+        music_url = "https://www.youtube.com/watch?v=BHfL4ns7-CM"
+        st.audio(music_url, format='audio/mp3')
         time.sleep(3)
         st.write("yt冰情悅不用進步")
         time.sleep(0.5)
@@ -2362,7 +2364,7 @@ if st.session_state.page == "shop":
     ######商品
     st.subheader("黑市藥品區") 
     if st.button("HP +30"):
-        alen.bag.HP += 30
+        st.session_state.HP += 30
 
         m.hp += 100
 
