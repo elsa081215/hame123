@@ -669,7 +669,7 @@ class bag:
             st.write("沒有藥水了！")   
 if "player" not in st.session_state:
     my_bag = bag(elixir=5)
-    st.session_state.player = Player(my_bag, st.session_state.prison)
+    st.session_state.player = Player(my_bag)
 
 alen = st.session_state.player
 #  Bag 功能
