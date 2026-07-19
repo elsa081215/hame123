@@ -653,8 +653,8 @@ class Player:
         st.session_state.HP -= damage
         st.write(f"你受到 {damage} 傷害")    
 class bag: 
-    def __init__(self, elixir, date=0, HP=100): #初始生命值和date
-        st.session_state.HP = HP
+    def __init__(self, elixir, date=0, ): #初始生命值和date
+        
         self.elixir = elixir
         self.date = date
     def oneday(self):
