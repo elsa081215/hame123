@@ -642,7 +642,8 @@ if "prison" not in st.session_state:
        
         #角色    
 class Player:
-    def __init__(self, bag, prison):
+    def __init__(self, bag, prison,HP):
+        self.HP = HP
         self.bag = bag
         self.prison = prison
     def atk(self, monster):
@@ -663,7 +664,7 @@ class bag:
     def use_elixir(self):
         if self.elixir > 0:
             self.elixir -= 1
-            self.HP += 20
+            st.session_state.HP += 20
             st.write("使用藥水 HP +20")
         else:
             st.write("沒有藥水了！")   
@@ -673,7 +674,7 @@ if "player" not in st.session_state:
 
 alen = st.session_state.player
 #  Bag 功能
-st.write("初始 HP:", alen.bag.HP)
+st.write("初始 HP:", st.session_state.HP)
 st.write("初始 date:", alen.bag.date)
 st.write("藥水數量:", alen.bag.elixir)
 
