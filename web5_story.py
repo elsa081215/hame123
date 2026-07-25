@@ -2448,7 +2448,7 @@ if st.session_state.page == "shop":
      
     if st.button("變強藥水"):
         st.session_state.shop_cost += 5
-        alen.bag.HP += 990
+        st.session_state.HP += 990
         st.info("溫馨提醒:當血量不大於1000時請再買一次")
         st.info("目前怪物數量:475→476") 
         st.success(" 隱藏結局：怪物")
@@ -2459,7 +2459,7 @@ if st.session_state.page == "shop":
 
         st.session_state.shop_cost += 35
 
-        alen.bag.HP += 10
+        st.session_state.HP += 10
 
         st.success("精神好多了。")
         st.session_state.buy_history.append("維他命")
