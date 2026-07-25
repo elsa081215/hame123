@@ -643,7 +643,7 @@ if "prison" not in st.session_state:
         #角色    
 class Player:
     def __init__(self, bag, prison,HP):
-        self.HP = HP
+        st.session_state.HP = HP
         self.bag = bag
         self.prison = prison
     def atk(self, monster):
